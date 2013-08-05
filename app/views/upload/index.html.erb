@@ -1,0 +1,13 @@
+      
+	  <% @name=session[:img] %>
+	  <% if @name %>
+	  <%= image_tag @name, :size=>'520x390' %>
+	  <% end %>
+	  <% form_for :upload, :url => {:controller=>:upload,:action => "create"},:html=>{:multipart => true, :name => "frm", :onSubmit => "return Checkfiles()"} do |f| -%>
+      <!--form section-->
+          Upload File: 
+              <%= f.file_field :file1, :id=>"co" %> <br>
+               <%= f.submit "Upload" %>  
+       <% end %>
+       <%= link_to 'Browse' %>all Images
+	   
